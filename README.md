@@ -1,6 +1,7 @@
-# React_Sandbox
+# React Sandbox with webpack
 
-React x Webpack の砂場環境。create-react-app を使わないで環境を構築したかった。<br>
+React x Webpack の砂場環境。<br>
+create-react-app を使わないで環境を構築したかった。<br>
 
 [webpack 公式サイト](https://webpack.js.org/)
 
@@ -8,6 +9,10 @@ React x Webpack の砂場環境。create-react-app を使わないで環境を�
 
 ```bash
 npm init -y
+
+npm install -g typescript
+tsc --init
+
 npm install --save-dev webpack webpack-cli
 touch webpack.config.js
 ```
