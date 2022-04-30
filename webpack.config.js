@@ -14,6 +14,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPulgin({
       title: "React Sandbox",
+      favicon: path.resolve(__dirname, "src", "public", "favicon.ico"),
     }),
   ],
   output: {
@@ -55,6 +56,6 @@ module.exports = {
    * tsファイルを直接bundleする際にimportの拡張子を補完する。
    */
   resolve: {
-    extensions: [".ts", ".tsx", "js"],
+    extensions: [".ts", ".tsx", ".js"],
   },
 };

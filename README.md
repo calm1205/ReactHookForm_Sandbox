@@ -19,4 +19,7 @@ touch webpack.config.js
 # tsファイルを直接webpackでbundleするために必要
 # 直接bundleするにはlocalにtypescriptのinstallが必要
 npm install --save-dev ts-loader typescript
+
+# webpackでのlocal server
+npm install --save-dev webpack-dev-server
 ```
