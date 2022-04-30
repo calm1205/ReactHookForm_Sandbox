@@ -22,4 +22,8 @@ npm install --save-dev ts-loader typescript
 
 # webpackでのlocal server
 npm install --save-dev webpack-dev-server
+
+# install react
+npm install react react-dom
+npm i --save-dev @types/react @types/react-dom
 ```

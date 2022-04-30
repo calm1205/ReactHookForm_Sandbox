@@ -5,16 +5,18 @@
 const path = require("path");
 /**
  * このpluginでcontenthashが書き込まれたhtmlファイルの出力が可能
+ * https://github.com/jantimon/html-webpack-plugin#options
  */
 const HtmlWebpackPulgin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  entry: "./src/main.ts",
+  entry: "./src/main.tsx",
   plugins: [
     new HtmlWebpackPulgin({
       title: "React Sandbox",
       favicon: path.resolve(__dirname, "src", "public", "favicon.ico"),
+      template: path.resolve(__dirname, "src", "index.html"),
     }),
   ],
   output: {
@@ -46,7 +48,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
+        test: /\.tsx$/,
         use: "ts-loader",
         exclude: /node_modules/,
       },
