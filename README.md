@@ -15,4 +15,8 @@ tsc --init
 
 npm install --save-dev webpack webpack-cli
 touch webpack.config.js
+
+# tsファイルを直接webpackでbundleするために必要
+# 直接bundleするにはlocalにtypescriptのinstallが必要
+npm install --save-dev ts-loader typescript
 ```

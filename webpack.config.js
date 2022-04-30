@@ -9,7 +9,8 @@ const path = require("path");
 const HtmlWebpackPulgin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./dist/src/main.js",
+  mode: "development",
+  entry: "./src/main.ts",
   plugins: [
     new HtmlWebpackPulgin({
       title: "React Sandbox",
@@ -38,4 +39,22 @@ module.exports = {
    * bundleファイルのsource-mapをdevtoolで確認できる。
    */
   devtool: "inline-source-map",
+  /**
+   * https://webpack.js.org/guides/build-performance/#typescript-loader
+   */
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  /**
+   * tsファイルを直接bundleする際にimportの拡張子を補完する。
+   */
+  resolve: {
+    extensions: [".ts", ".tsx", "js"],
+  },
 };

@@ -17,11 +17,13 @@
 
     // 指定したパスにトランスパイル後のファイルを最適化された状態で出力する。
     // 最適化とは空のディレクトリを省くことである。これがあるとトランスパイル前後でのファイルへの絶対パスがずれる可能性が出てくる。
-    "outDir": "./dist" /* Redirect output structure to the directory. */,
+    // webpackが優先されるため使用されない
+    // "outDir": "./dist" /* Redirect output structure to the directory. */,
 
     // outDirの最適化をしない。かつ指定したディレクトリ配下のファイルのみをトランスパイル対象に設定する。
     // "./src"としたらsrcディレクトリは出力されない。src/配下のディレクトリ・ファイルのみが出力される。
-    "rootDir": "./" /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */,
+    // webpackが優先されるため使用されない
+    // "rootDir": "./" /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */,
     // "composite": true,                           /* Enable project compilation */
     // "tsBuildInfoFile": "./",                     /* Specify file to store incremental compilation information */
 
