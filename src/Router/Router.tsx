@@ -7,6 +7,7 @@ export const Router: React.FC = () => {
   const DefaultValueForm = lazy(() => import("~/2_DefaultValueForm"));
   const ValidationForm = lazy(() => import("~/3_validationForm"));
   const NestedInputForm = lazy(() => import("~/4_NestedInputForm"));
+  const NestedInputForm2 = lazy(() => import("~/5_NestedInputForm"));
 
   const suspensize = useCallback(
     (Component: React.LazyExoticComponent<() => JSX.Element>) => (
@@ -29,7 +30,14 @@ export const Router: React.FC = () => {
                 <PageTitle title="最小構成" path="minimal" />
                 <PageTitle title="defaultValueセット" path="default" />
                 <PageTitle title="validationセット" path="validation" />
-                <PageTitle title="inputコンポーネント化" path="input" />
+                <PageTitle
+                  title="inputコンポーネント化(regiser)"
+                  path="input"
+                />
+                <PageTitle
+                  title="inputコンポーネント化(useFormContext)"
+                  path="input2"
+                />
               </ol>
             </>
           }
@@ -38,6 +46,7 @@ export const Router: React.FC = () => {
         <Route path="/default" element={suspensize(DefaultValueForm)} />
         <Route path="/validation" element={suspensize(ValidationForm)} />
         <Route path="/input" element={suspensize(NestedInputForm)} />
+        <Route path="/input2" element={suspensize(NestedInputForm2)} />
 
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>

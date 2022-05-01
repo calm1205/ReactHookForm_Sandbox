@@ -1,22 +1,18 @@
 import React from "react";
-import { useFormContext } from "react-hook-form";
+import { UseFormRegisterReturn } from "react-hook-form";
 
 type Input = {
-  name: string;
+  register: UseFormRegisterReturn;
   label: string;
+  error: any;
 };
 
-export const NestedInput: React.FC<Input> = ({ name, label }) => {
-  const {
-    register,
-    formState: { errors },
-  } = useFormContext();
-
+export const NestedInput: React.FC<Input> = ({ register, label, error }) => {
   return (
     <div>
       <label>{label}</label>
-      <input {...register(name, { required: `${label}は必須です。` })} />
-      <span>{errors[name]?.message}</span>
+      <input {...register} />
+      <span>{error}</span>
     </div>
   );
 };
