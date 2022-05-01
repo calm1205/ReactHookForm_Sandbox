@@ -6,7 +6,7 @@ type Input = {
   label: string;
 };
 
-export const NestedInput: React.FC<Input> = ({ name, label }) => {
+export const Input: React.FC<Input> = ({ name, label }) => {
   const {
     register,
     formState: { errors },

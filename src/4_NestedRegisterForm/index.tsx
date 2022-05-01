@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useCallback, useMemo } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { NestedInput } from "./NestedInput";
+import { Input } from "./Input";
 import { Inputs } from "~/Types";
 
 export default () => {
@@ -15,17 +15,19 @@ export default () => {
     console.log("submit data is:", input);
   };
 
+  console.log("validation error:", errors);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1>コンポーネント化(register)</h1>
 
-      <NestedInput
+      <Input
         label="氏名"
         register={register("name", { required: "氏名は必須です。" })}
         error={errors.name?.message}
       />
 
-      <NestedInput
+      <Input
         label="年齢"
         register={register("age", {
           required: "年齢は必須です",
@@ -34,7 +36,7 @@ export default () => {
         error={errors.age?.message}
       />
 
-      <NestedInput
+      <Input
         label="職業"
         register={register("job", { required: "職業は必須です。" })}
         error={errors.job?.message}

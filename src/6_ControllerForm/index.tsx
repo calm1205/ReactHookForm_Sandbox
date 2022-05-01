@@ -1,6 +1,6 @@
 import React from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { Input } from "./Input";
+import { RHFInput } from "./RHFInput";
 import { Inputs } from "~/Types";
 
 export default () => {
@@ -14,11 +14,11 @@ export default () => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <h1>コンポーネント化(useFormContext)</h1>
+        <h1>コンポーネント化(controller)</h1>
 
-        <Input name={"name" as keyof Inputs} label="氏名" />
-        <Input name={"age" as keyof Inputs} label="年齢" />
-        <Input name={"job" as keyof Inputs} label="職業" />
+        <RHFInput<Inputs> name="name" label="氏名" />
+        <RHFInput<Inputs> name="age" label="年齢" />
+        <RHFInput<Inputs> name="job" label="職業" />
 
         <input type="submit" />
       </form>

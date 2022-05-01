@@ -9,3 +9,8 @@ useFormContext を使うことで子の input のコンポーネントにわざ�
 ## FormProvider
 
 子のコンポーネントが context にアクセスできるようにするために必要。
+
+## errors
+
+onSubmit や onBlur のタイミングで errors オブジェクトの更新が走る。
+そのため useForm を定義しているコンポーネントが再レンダリングしてしまう。
