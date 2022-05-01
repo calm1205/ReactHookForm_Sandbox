@@ -9,6 +9,7 @@ export const Router: React.FC = () => {
   const NestedRegisterForm = lazy(() => import("~/4_NestedRegisterForm"));
   const NestedInputForm = lazy(() => import("~/5_NestedInputForm"));
   const NestedControllerForm = lazy(() => import("~/6_ControllerForm"));
+  const SwitchForm = lazy(() => import("~/7_SwitchForm"));
 
   const suspensize = useCallback(
     (Component: React.LazyExoticComponent<() => JSX.Element>) => (
@@ -37,6 +38,7 @@ export const Router: React.FC = () => {
                   path="useFormContext"
                 />
                 <PageTitle title="controllerコンポーネント" path="controller" />
+                <PageTitle title="コンポーネントの表示/非表示" path="switch" />
               </ol>
             </>
           }
@@ -47,6 +49,7 @@ export const Router: React.FC = () => {
         <Route path="/register" element={suspensize(NestedRegisterForm)} />
         <Route path="/useFormContext" element={suspensize(NestedInputForm)} />
         <Route path="/controller" element={suspensize(NestedControllerForm)} />
+        <Route path="/switch" element={suspensize(SwitchForm)} />
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </BrowserRouter>

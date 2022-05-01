@@ -7,6 +7,9 @@ type RHFInput<T> = {
   label: string;
 };
 
+/**
+ * Genericsのオブジェクトのキーでname属性を制限
+ */
 export const RHFInput = <T extends { [key: string]: unknown }>(
   props: RHFInput<T>
 ) => {

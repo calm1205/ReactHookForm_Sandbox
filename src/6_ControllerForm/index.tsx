@@ -1,6 +1,6 @@
 import React from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { RHFInput } from "./RHFInput";
+import { RHFInput } from "./components/RHFInput";
 import { Inputs } from "~/Types";
 
 export default () => {
