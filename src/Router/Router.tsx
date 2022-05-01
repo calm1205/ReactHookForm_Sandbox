@@ -6,8 +6,8 @@ export const Router: React.FC = () => {
   const MinimalForm = lazy(() => import("~/1_MinimalForm"));
   const DefaultValueForm = lazy(() => import("~/2_DefaultValueForm"));
   const ValidationForm = lazy(() => import("~/3_validationForm"));
-  const NestedInputForm = lazy(() => import("~/4_NestedInputForm"));
-  const NestedInputForm2 = lazy(() => import("~/5_NestedInputForm"));
+  const NestedRegisterForm = lazy(() => import("~/4_NestedRegisterForm"));
+  const NestedInputForm = lazy(() => import("~/5_NestedInputForm"));
 
   const suspensize = useCallback(
     (Component: React.LazyExoticComponent<() => JSX.Element>) => (
@@ -45,8 +45,8 @@ export const Router: React.FC = () => {
         <Route path="/minimal" element={suspensize(MinimalForm)} />
         <Route path="/default" element={suspensize(DefaultValueForm)} />
         <Route path="/validation" element={suspensize(ValidationForm)} />
-        <Route path="/input" element={suspensize(NestedInputForm)} />
-        <Route path="/input2" element={suspensize(NestedInputForm2)} />
+        <Route path="/input" element={suspensize(NestedRegisterForm)} />
+        <Route path="/input2" element={suspensize(NestedInputForm)} />
 
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
