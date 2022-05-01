@@ -26,4 +26,7 @@ npm install --save-dev webpack-dev-server
 # install react
 npm install react react-dom
 npm i --save-dev @types/react @types/react-dom
+
+# install react-hook-form
+npm install react-hook-form
 ```
