@@ -14,7 +14,9 @@ export const Router: React.FC = () => {
               <ul>
                 {pages.map((page, i) => (
                   <li key={`list_${i}`}>
-                    <Link to={`/${i}`}>{page.title}</Link>
+                    <Link to={`/${i}`}>
+                      {i + 1}_{page.title}
+                    </Link>
                   </li>
                 ))}
               </ul>
