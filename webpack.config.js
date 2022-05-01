@@ -16,7 +16,7 @@ module.exports = {
     new HtmlWebpackPulgin({
       title: "React Sandbox",
       favicon: path.resolve(__dirname, "src", "public", "favicon.ico"),
-      template: path.resolve(__dirname, "src", "index.html"),
+      template: path.resolve(__dirname, "src", "public", "index.html"),
     }),
   ],
   output: {
@@ -62,5 +62,9 @@ module.exports = {
     alias: {
       "~": path.resolve(__dirname, "src"),
     },
+  },
+
+  devServer: {
+    historyApiFallback: true,
   },
 };
