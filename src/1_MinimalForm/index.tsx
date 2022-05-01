@@ -1,11 +1,6 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-type Inputs = {
-  name: string;
-  age: string;
-  job: string;
-};
+import { Inputs } from "~/Types";
 
 export default () => {
   const { register, handleSubmit } = useForm<Inputs>();

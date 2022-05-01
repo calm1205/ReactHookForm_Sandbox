@@ -1,20 +1,10 @@
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-type Inputs = {
-  name: string;
-  age: string;
-  job: string;
-  blood: string;
-};
+import { Inputs } from "~/Types";
 
 export default () => {
   const { register, handleSubmit } = useForm<Inputs>({
-    defaultValues: {
-      name: "山田太郎",
-      age: "19",
-      job: "公務員",
-    },
+    defaultValues: { name: "山田太郎", age: 19 },
   });
 
   const onSubmit: SubmitHandler<Inputs> = (input) =>
@@ -32,13 +22,9 @@ export default () => {
       <input {...register("age")} />
       <br />
 
-      <label>職業</label>
-      <input {...register("job")} />
-      <br />
-
       {/** 直接設定 非推奨かも */}
-      <label>血液型</label>
-      <input {...register("blood")} defaultValue="A型" />
+      <label>職業</label>
+      <input {...register("job")} defaultValue="天地雷鳴士" />
       <br />
 
       <input type="submit" />
