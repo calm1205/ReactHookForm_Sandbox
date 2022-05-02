@@ -19,12 +19,14 @@ export default () => {
   const {
     handleSubmit,
     formState: { errors },
+    reset,
   } = methods;
 
   const onSubmit: SubmitHandler<NameFields & { state?: unknown }> = (input) => {
     console.log("collect data is:", input);
     console.log("mount fields data is:", input.name);
     console.log("state data is:", input.state);
+    reset();
   };
 
   return (
