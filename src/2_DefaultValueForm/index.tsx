@@ -3,15 +3,22 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Inputs } from "~/Types";
 
 export default () => {
-  const { register, handleSubmit, getValues } = useForm<Inputs>({
+  const { register, handleSubmit, setValue, getValues } = useForm<
+    Inputs & { height: number }
+  >({
     defaultValues: { name: "山田太郎", age: 19 },
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (input) =>
+  register("height");
+  setValue("height", 190);
+
+  const onSubmit: SubmitHandler<Inputs> = (input) => {
     console.log("submit data is:", input);
+  };
 
   console.log("name default value:", getValues("name"));
   console.log("age default value:", getValues("age"));
+  console.log("height default value:", getValues("height"));
   console.log("job default value:", getValues("job"));
 
   return (
@@ -20,10 +27,16 @@ export default () => {
 
       <label>氏名</label>
       <input {...register("name")} />
+      <span>推奨される設定方法</span>
       <br />
 
       <label>年齢</label>
-      <input {...register("age")} />
+      <input name="age" />
+      <span>RHFで管理されている値とinputにある値が乖離</span>
+      <br />
+
+      <label>身長</label>
+      <input name="height" />
       <br />
 
       <label>職業</label>
