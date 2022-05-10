@@ -5,6 +5,7 @@ import { Input } from "./Input";
 type RHFInput<T> = {
   name: keyof T & string;
   label: string;
+  disabled?: boolean;
 };
 
 /**
@@ -24,6 +25,7 @@ export const RHFInput = <T extends { [key: string]: unknown }>(
         <Input
           name={name}
           value={value}
+          disabled={props.disabled}
           label={props.label}
           error={error?.message}
           onChange={onChange}

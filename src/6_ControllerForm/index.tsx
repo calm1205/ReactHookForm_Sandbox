@@ -16,7 +16,7 @@ export default () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>コンポーネント化(controller)</h1>
 
-        <RHFInput<Inputs> name="name" label="氏名" />
+        <RHFInput<Inputs> name="name" label="氏名" disabled />
         <RHFInput<Inputs> name="age" label="年齢" />
         <RHFInput<Inputs> name="job" label="職業" />
 
