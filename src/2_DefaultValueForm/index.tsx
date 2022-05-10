@@ -3,12 +3,16 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { Inputs } from "~/Types";
 
 export default () => {
-  const { register, handleSubmit } = useForm<Inputs>({
+  const { register, handleSubmit, getValues } = useForm<Inputs>({
     defaultValues: { name: "山田太郎", age: 19 },
   });
 
   const onSubmit: SubmitHandler<Inputs> = (input) =>
     console.log("submit data is:", input);
+
+  console.log("name default value:", getValues("name"));
+  console.log("age default value:", getValues("age"));
+  console.log("job default value:", getValues("job"));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -22,9 +26,9 @@ export default () => {
       <input {...register("age")} />
       <br />
 
-      {/** 直接設定 非推奨かも */}
       <label>職業</label>
       <input {...register("job")} defaultValue="天地雷鳴士" />
+      <span>表示はできるがRHFの対象外</span>
       <br />
 
       <input type="submit" />
