@@ -4,7 +4,7 @@ import { RHFInput } from "./components/RHFInput";
 import { Inputs } from "~/Types";
 
 export default () => {
-  const methods = useForm<Inputs>({ reValidateMode: "onBlur" });
+  const methods = useForm<Inputs>({ mode: "onBlur", reValidateMode: "onBlur" });
   const { handleSubmit } = methods;
 
   const onSubmit: SubmitHandler<Inputs> = (input) => {
