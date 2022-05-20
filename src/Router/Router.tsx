@@ -14,6 +14,7 @@ export const Router: React.FC = () => {
   const UseWatch = lazy(() => import("~/9_UseWatch"));
   const ClearError = lazy(() => import("~/10_ClearError"));
   const SetFocus = lazy(() => import("~/11_SetFocus"));
+  const ValidationControl = lazy(() => import("~/12_ValidationControl"));
 
   const suspensize = useCallback(
     (Component: React.LazyExoticComponent<() => JSX.Element>) => (
@@ -47,6 +48,7 @@ export const Router: React.FC = () => {
                 <PageTitle title="UseWatch" path="usewatch" />
                 <PageTitle title="ClearError" path="clear" />
                 <PageTitle title="SetFocus" path="setfocus" />
+                <PageTitle title="Validation制御" path="validationControl" />
               </ol>
             </>
           }
@@ -62,6 +64,10 @@ export const Router: React.FC = () => {
         <Route path="/usewatch" element={suspensize(UseWatch)} />
         <Route path="/clear" element={suspensize(ClearError)} />
         <Route path="/setfocus" element={suspensize(SetFocus)} />
+        <Route
+          path="/validationControl"
+          element={suspensize(ValidationControl)}
+        />
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </BrowserRouter>
