@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import { Input } from "./Input";
+import { useHoldValueAsState } from "../hooks/useHoldValueAsState";
 
 type RHFInput = {
   name: string;
@@ -16,16 +17,8 @@ export const RHFInput: React.FC<RHFInput> = ({
   label,
   defaultValue = "",
 }) => {
-  const { setValue, getValues } = useFormContext();
-  const stateName = `state.${name}`;
-
-  // formがunmount時はinputに直接含めない。
-  useEffect(() => {
-    const stateValue = getValues(stateName);
-    if (stateValue) setValue(name, stateValue);
-
-    return () => setValue(stateName, getValues(name)); // unmount時にstateにセット
-  }, []);
+  // unregister時にvalueを逃がす
+  useHoldValueAsState(name);
 
   return (
     <Controller
@@ -35,7 +28,7 @@ export const RHFInput: React.FC<RHFInput> = ({
       shouldUnregister // useFormで全体に適応ではなく個別設定
       render={({
         field: { onChange, onBlur, value, name },
-        fieldState: { error },
+        fieldState: { error }, // useFormContextの値は参照しない
       }) => (
         <Input
           name={name}
