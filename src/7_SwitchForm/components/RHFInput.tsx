@@ -28,7 +28,7 @@ export const RHFInput: React.FC<RHFInput> = ({
       shouldUnregister // useFormで全体に適応ではなく個別設定
       render={({
         field: { onChange, onBlur, value, name },
-        fieldState: { error }, // useFormContextの値は参照しない
+        fieldState: { error }, // useFormContextのerrorを参照しない
       }) => (
         <Input
           name={name}
