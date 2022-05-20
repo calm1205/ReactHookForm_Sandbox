@@ -9,6 +9,10 @@ type Input = {
   onBlur: () => void;
 };
 
+/**
+ * 純粋なinput
+ * RHFの要素は持たない
+ */
 export const Input: React.FC<Input> = ({
   name,
   label,
