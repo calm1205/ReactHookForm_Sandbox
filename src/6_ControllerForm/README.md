@@ -6,6 +6,8 @@ register や useFormContext を活用して input のコンポーネントを定
 
 ## name 属性
 
+RHFでFormProviderとControllerを活用した時の弱点としてinputのname属性がマジックテキストでの実装になってしまうことがある。
+それを払拭するため実装。
 コンポーネントを generics 付きのコンポーネントにすることで name 属性をリテラル型で縛ることができた。（ただ分かりづらいので非推奨）
 
 ```tsx
