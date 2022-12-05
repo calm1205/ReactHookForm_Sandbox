@@ -20,7 +20,7 @@ export const Input: React.FC<Input> = ({ name, label }) => {
     <div>
       <label>{label}</label>
       <input {...register(name, requiredValidation)} />
-      <span>{errors[name]?.message}</span>
+      <span>{`${errors[name]?.message}`}</span>
     </div>
   );
 };
