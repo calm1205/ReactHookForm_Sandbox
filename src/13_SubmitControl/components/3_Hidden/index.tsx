@@ -1,16 +1,13 @@
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { useSwitch } from "../hooks/useSwitch";
-import { Switch } from "./Switch";
+import { useSwitch } from "../../hooks/useSwitch";
+import { Switch } from "../Switch";
 
 type Field = {
-  data2: string;
+  data3: string;
 };
 
-/**
- * Submit制御
- */
-export const ShouldUnregister: React.FC = () => {
-  const methods = useForm<Field>({ shouldUnregister: true });
+export const Hidden: React.FC = () => {
+  const methods = useForm<Field>({ shouldUnregister: false });
   const {
     handleSubmit,
     register,
@@ -29,15 +26,19 @@ export const ShouldUnregister: React.FC = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <br />
         <br />
+        <br />
         <hr />
-        <h3>shouldUnregister: true</h3>
+        <h3>hidden</h3>
         <p>
-          - 非表示でデータ揮発 <br />- 非表示でバリデーション無視
+          - 非表示でもデータ保持
+          <br />- 非表示でもバリデーション発火
         </p>
 
         <Switch checked={check} onChange={toggleCheck} />
 
-        {check && <input {...register("data2", { required: true })} />}
+        <div hidden={!check}>
+          <input {...register("data3", { required: true })} />
+        </div>
 
         <input type="submit" />
       </form>
