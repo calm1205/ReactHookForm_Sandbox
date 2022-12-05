@@ -10,7 +10,8 @@ import { Switch } from "../Switch";
 import { Input } from "./Input";
 
 type Field = {
-  data4: string;
+  form1: string;
+  form2: string;
 };
 
 export const ShouldUnregisterKeep: React.FC = () => {
@@ -36,11 +37,13 @@ export const ShouldUnregisterKeep: React.FC = () => {
         <p>
           - 非表示でデータ揮発 ← 無理やりkeep
           <br />- 非表示でバリデーション無視
+          <br />- 非表示の時にstateの名前空間でデータ保持
         </p>
 
         <Switch checked={check} onChange={toggleCheck} />
 
-        {check && <Input register={register("data4", { required: true })} />}
+        {check && <Input register={register("form1", { required: true })} />}
+        {!check && <Input register={register("form2", { required: true })} />}
 
         <input type="submit" />
       </form>
