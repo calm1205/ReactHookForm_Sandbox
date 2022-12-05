@@ -15,6 +15,7 @@ export const Router: React.FC = () => {
   const ClearError = lazy(() => import("~/10_ClearError"));
   const SetFocus = lazy(() => import("~/11_SetFocus"));
   const ValidationControl = lazy(() => import("~/12_ValidationControl"));
+  const SubmitControl = lazy(() => import("~/13_SubmitControl"));
 
   const suspensize = useCallback(
     (Component: React.LazyExoticComponent<() => JSX.Element>) => (
@@ -38,10 +39,7 @@ export const Router: React.FC = () => {
                 <PageTitle title="defaultValueセット" path="default" />
                 <PageTitle title="validationセット" path="validation" />
                 <PageTitle title="registerコンポーネント" path="register" />
-                <PageTitle
-                  title="useFormContextコンポーネント"
-                  path="useFormContext"
-                />
+                <PageTitle title="useFormContext" path="useFormContext" />
                 <PageTitle title="controllerコンポーネント" path="controller" />
                 <PageTitle title="コンポーネントの表示/非表示" path="switch" />
                 <PageTitle title="ErrorMessage" path="error" />
@@ -49,6 +47,7 @@ export const Router: React.FC = () => {
                 <PageTitle title="ClearError" path="clear" />
                 <PageTitle title="SetFocus" path="setfocus" />
                 <PageTitle title="Validation制御" path="validationControl" />
+                <PageTitle title="onSubmit制御" path="submitControl" />
               </ol>
             </>
           }
@@ -68,6 +67,7 @@ export const Router: React.FC = () => {
           path="/validationControl"
           element={suspensize(ValidationControl)}
         />
+        <Route path="/submitControl" element={suspensize(SubmitControl)} />
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </BrowserRouter>
