@@ -1,5 +1,4 @@
 type Input = {
-  label: string;
   checked: boolean;
   onChange: () => void;
 };
@@ -7,11 +6,11 @@ type Input = {
 /**
  * 表示/非表示を切り替えるためのコンポーネント
  */
-export const Switch: React.FC<Input> = ({ label, checked, onChange }) => {
+export const Switch: React.FC<Input> = ({ checked, onChange }) => {
   return (
     <>
       <label>
-        {label}
+        {checked ? "表示" : "非表示"}
         <input type="checkbox" checked={checked} onChange={onChange} />
       </label>
       <br />

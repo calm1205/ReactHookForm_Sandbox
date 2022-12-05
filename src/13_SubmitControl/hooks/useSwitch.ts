@@ -5,10 +5,7 @@ import { useCallback, useState } from "react";
  */
 export const useSwitch = () => {
   const [check, setCheck] = useState(true);
-  const toggleCheck = useCallback(() => setCheck(!check), [check]);
+  const toggleCheck = () => setCheck((pre) => !pre);
 
-  return {
-    check,
-    toggleCheck,
-  };
+  return { check, toggleCheck };
 };

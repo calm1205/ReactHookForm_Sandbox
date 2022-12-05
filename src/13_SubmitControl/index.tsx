@@ -1,6 +1,6 @@
-import { useCallback, useState } from "react";
-
+import { Hidden } from "./components/Hidden";
 import { Normal } from "./components/Normal";
+import { ShouldUnregister } from "./components/ShouldUnregister";
 
 /**
  * Submit制御
@@ -12,6 +12,12 @@ export default () => {
 
       {/* shouldUnregister: false */}
       <Normal />
+
+      {/* shouldUnregister: true */}
+      <ShouldUnregister />
+
+      {/* hidden */}
+      <Hidden />
     </>
   );
 };
