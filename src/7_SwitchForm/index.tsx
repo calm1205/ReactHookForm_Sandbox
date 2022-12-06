@@ -3,7 +3,7 @@ import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { RHFInput } from "./components/RHFInput";
 import { Switch } from "./components/Switch";
 
-type NameFields = {
+type Fields = {
   name: {
     family: string;
     middle: string;
@@ -12,13 +12,10 @@ type NameFields = {
 };
 
 export default () => {
-  const methods = useForm<NameFields>({
-    mode: "onBlur",
-    reValidateMode: "onBlur",
-  });
+  const methods = useForm<Fields>({ mode: "onBlur", reValidateMode: "onBlur" });
   const { handleSubmit } = methods;
 
-  const onSubmit: SubmitHandler<NameFields & { state?: unknown }> = (input) => {
+  const onSubmit: SubmitHandler<Fields & { state?: unknown }> = (input) => {
     console.log("collect data is:", input);
     console.log("mount fields data is:", input.name);
     console.log("state data is:", input.state);

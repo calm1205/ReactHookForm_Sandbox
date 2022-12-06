@@ -7,20 +7,17 @@ import {
 import { useSwitch } from "../../hooks/useSwitch";
 import { Switch } from "../Switch";
 
-type Field = {
-  data1: string;
-};
+type Field = { data1: string };
+
+const onSubmit: SubmitHandler<Field> = (input) =>
+  console.log("collect data is:", input);
+
+const onError: SubmitErrorHandler<Field> = (errors) =>
+  console.log("errors:", errors);
 
 export const ShouldUnregisterFalse: React.FC = () => {
   const methods = useForm<Field>({ shouldUnregister: false });
   const { handleSubmit, register } = methods;
-
-  const onSubmit: SubmitHandler<Field> = (input) => {
-    console.log("collect data is:", input);
-  };
-  const onError: SubmitErrorHandler<Field> = (errors) => {
-    console.log("errors:", errors);
-  };
 
   const { check, toggleCheck } = useSwitch();
 

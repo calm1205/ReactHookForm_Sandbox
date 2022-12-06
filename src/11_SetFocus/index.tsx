@@ -1,8 +1,8 @@
-import React from "react";
+import { useEffect } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { RHFInput } from "./components/RHFInput";
 
-type NameFields = {
+type Fields = {
   name: {
     family: string;
     middle: string;
@@ -11,20 +11,14 @@ type NameFields = {
 };
 
 export default () => {
-  const methods = useForm<NameFields>({
-    mode: "onBlur",
-    reValidateMode: "onBlur",
-  });
+  const methods = useForm<Fields>({ mode: "onBlur", reValidateMode: "onBlur" });
 
   const { handleSubmit, setFocus } = methods;
 
-  React.useEffect(() => {
-    setFocus("name.family");
-  }, [setFocus]);
+  useEffect(() => setFocus("name.family"), [setFocus]);
 
-  const onSubmit: SubmitHandler<NameFields> = (input) => {
+  const onSubmit: SubmitHandler<Fields> = (input) =>
     console.log("collect data is:", input);
-  };
 
   return (
     <FormProvider {...methods}>

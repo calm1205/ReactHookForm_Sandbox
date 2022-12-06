@@ -1,24 +1,19 @@
-import React, { useCallback, useMemo } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "./Input";
 import { Inputs } from "~/Types";
 
 export default () => {
   const methods = useForm<Inputs>({ reValidateMode: "onBlur" });
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = methods;
+  const { register, handleSubmit, formState } = methods;
+  const { errors } = formState;
 
-  const onSubmit: SubmitHandler<Inputs> = (input) => {
+  const onSubmit: SubmitHandler<Inputs> = (input) =>
     console.log("submit data is:", input);
-  };
-
-  console.log("validation error:", errors);
+  const onError: SubmitErrorHandler<Inputs> = (errors) =>
+    console.log("validation error:", errors);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit, onError)}>
       <h1>コンポーネント化(register)</h1>
 
       <Input

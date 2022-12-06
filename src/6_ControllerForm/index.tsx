@@ -7,9 +7,8 @@ export default () => {
   const methods = useForm<Inputs>({ mode: "onBlur", reValidateMode: "onBlur" });
   const { handleSubmit } = methods;
 
-  const onSubmit: SubmitHandler<Inputs> = (input) => {
+  const onSubmit: SubmitHandler<Inputs> = (input) =>
     console.log("submit data is:", input);
-  };
 
   return (
     <FormProvider {...methods}>

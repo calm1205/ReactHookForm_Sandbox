@@ -1,10 +1,9 @@
 import { ErrorMessage } from "@hookform/error-message";
-import React from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import ClearError from "./components/clearError";
 import { RHFInput } from "./components/RHFInput";
 
-type NameFields = {
+type Fields = {
   name: {
     family: string;
     middle: string;
@@ -13,19 +12,13 @@ type NameFields = {
 };
 
 export default () => {
-  const methods = useForm<NameFields>({
-    mode: "onBlur",
-    reValidateMode: "onBlur",
-  });
+  const methods = useForm<Fields>({ mode: "onBlur", reValidateMode: "onBlur" });
 
-  const {
-    handleSubmit,
-    formState: { errors },
-  } = methods;
+  const { handleSubmit, formState } = methods;
+  const { errors } = formState;
 
-  const onSubmit: SubmitHandler<NameFields> = (input) => {
+  const onSubmit: SubmitHandler<Fields> = (input) =>
     console.log("collect data is:", input);
-  };
 
   console.log("errors is : ", errors);
 

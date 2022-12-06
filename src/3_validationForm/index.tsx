@@ -5,10 +5,7 @@ import { Inputs } from "~/Types";
 export default () => {
   const { register, handleSubmit, formState } = useForm<Inputs>({
     reValidateMode: "onBlur", // validationが発火するタイミング
-    defaultValues: {
-      age: -1,
-      job: "天地雷鳴士",
-    },
+    defaultValues: { age: -1, job: "天地雷鳴士" },
   });
 
   const onSubmit: SubmitHandler<Inputs> = (input) => {

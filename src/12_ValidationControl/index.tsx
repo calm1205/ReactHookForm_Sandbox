@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { RHFInput } from "./components/RHFInput";
 import { Inputs } from "~/Types";
@@ -7,9 +7,8 @@ export default () => {
   const methods = useForm<Inputs>({ mode: "onBlur", reValidateMode: "onBlur" });
   const { handleSubmit } = methods;
 
-  const onSubmit: SubmitHandler<Inputs> = (input) => {
+  const onSubmit: SubmitHandler<Inputs> = (input) =>
     console.log("submit data is:", input);
-  };
 
   // disable制御
   const [disabled, setDisabled] = useState(false);
